@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if filename argument is provided
-if [ $# -eq 0 ]; then
+if [[ $# -eq 0 ]]; then
     echo "Usage: $0 <filename>"
     echo "This script searches for exceptions and errors in a file."
     exit 1
@@ -10,7 +10,7 @@ fi
 filename="$1"
 
 # Check if file exists
-if [ ! -f "$filename" ]; then
+if [[ ! -f "$filename" ]]; then
     echo "Error: File '$filename' not found."
     exit 1
 fi

@@ -4,10 +4,9 @@
 # This script tests various scenarios for the error/exception search functionality
 
 # Color codes for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+readonly RED='\033[0;31m'
+readonly GREEN='\033[0;32m'
+readonly NC='\033[0m' # No Color
 
 # Test counters
 TESTS_RUN=0
@@ -30,14 +29,14 @@ run_test() {
     local test_name="$1"
     local expected_result="$2"
     shift 2
-    local command="$@"
+    local command=("$@")
 
     TESTS_RUN=$((TESTS_RUN + 1))
 
     echo -n "Test $TESTS_RUN: $test_name ... "
 
     # Run the command and capture output and exit code
-    output=$($command 2>&1)
+    output=$("${command[@]}" 2>&1)
     exit_code=$?
 
     if [[ "$expected_result" == "exit:0" && $exit_code -eq 0 ]] || \
