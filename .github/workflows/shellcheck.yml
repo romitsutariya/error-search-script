@@ -19,13 +19,10 @@ jobs:
     - name: Display shellcheck version
       run: shellcheck --version
 
-    - name: Run shellcheck on bash scripts
+    - name: Run shellcheck on all bash scripts
       run: |
         echo "Checking shell scripts for code quality..."
         echo "==========================================="
-        shellcheck -x *.sh || exit_code=$?
-        if [ "${exit_code:-0}" -ne 0 ]; then
-          echo "ShellCheck found style issues (non-blocking)"
-        fi
+        shellcheck -f gcc *.sh 2>&1 || true
         echo "==========================================="
-        echo "ShellCheck linting completed successfully!"
+        echo "ShellCheck linting report complete!"
