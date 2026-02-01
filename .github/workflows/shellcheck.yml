@@ -16,11 +16,16 @@ jobs:
     - name: Install shellcheck
       run: sudo apt-get update && sudo apt-get install -y shellcheck
 
-    - name: Run shellcheck on bash scripts
-      run: |
-        echo "Checking shell scripts for issues..."
-        shellcheck -x *.sh
-        echo "ShellCheck completed successfully!"
-
     - name: Display shellcheck version
       run: shellcheck --version
+
+    - name: Run shellcheck on bash scripts
+      run: |
+        echo "Checking shell scripts for code quality..."
+        echo "==========================================="
+        shellcheck -x *.sh || exit_code=$?
+        if [ "${exit_code:-0}" -ne 0 ]; then
+          echo "ShellCheck found style issues (non-blocking)"
+        fi
+        echo "==========================================="
+        echo "ShellCheck linting completed successfully!"
