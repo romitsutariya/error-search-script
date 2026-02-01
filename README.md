@@ -1,6 +1,7 @@
 # search_errors.sh
 
-![Run Unit Tests](https://github.com/romitdubey/aidemo/actions/workflows/run-tests.yml/badge.svg)
+[![Run Unit Tests](https://github.com/romitsutariya/error-search-script/actions/workflows/run-tests.yml/badge.svg)](https://github.com/romitsutariya/error-search-script/actions/workflows/run-tests.yml)
+[![Tests Passing](https://img.shields.io/badge/tests-passing-brightgreen?style=flat-square)]()
 
 A lightweight bash utility for searching error and exception keywords in log files and text documents.
 
