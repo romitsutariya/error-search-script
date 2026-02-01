@@ -18,11 +18,3 @@ jobs:
 
     - name: Run unit tests
       run: ./test_search_errors.sh
-
-    - name: Upload test results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-results
-        path: |
-          test_search_errors.sh
