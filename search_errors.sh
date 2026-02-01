@@ -19,10 +19,7 @@ echo "Searching for exceptions and errors in: $filename"
 echo "=============================================="
 
 # Search for common exception and error patterns
-grep -in "exception\|error\|fatal\|critical\|failed\|failure\|invalid\|undefined\|null\|crash" "$filename"
-
-# Check if grep found anything
-if [ $? -eq 0 ]; then
+if grep -in "exception\|error\|fatal\|critical\|failed\|failure\|invalid\|undefined\|null\|crash" "$filename"; then
     echo "=============================================="
     echo "Search completed. Results shown above."
 else
